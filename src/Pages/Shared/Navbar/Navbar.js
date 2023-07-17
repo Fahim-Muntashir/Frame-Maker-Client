@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from "../../../logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,9 +14,7 @@ const Navbar = () => {
   return (
     <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
       <a className="text-3xl font-bold leading-none" href="#">
-        <svg className="h-10" alt="logo" viewBox="0 0 10240 10240">
-          {/* SVG path data */}
-        </svg>
+        <img src={logo} alt="" />
       </a>
       {/* Burger menu */}
       <div className="lg:hidden">
