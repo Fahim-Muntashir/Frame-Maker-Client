@@ -12,10 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-      <a className="text-3xl font-bold leading-none" href="#">
-        <img src={logo} alt="" />
-      </a>
+    <nav className="shadow-sm relative flex justify-between items-center bg-white">
+      <img width="200px" src={logo} alt="" />
+
       {/* Burger menu */}
       <div className="lg:hidden">
         <button
