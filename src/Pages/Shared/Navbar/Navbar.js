@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../logo.png";
 import Container from "../../../Components/Container";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
   return (
     <div className="shadow-sm">
       <Container>
-        <nav className=" relative flex justify-between items-center bg-white">
+        <nav className=" relative flex justify-between items-center bg-black">
           <img width="200px" src={logo} alt="" />
 
           {/* Burger menu */}
@@ -153,18 +154,18 @@ const Navbar = () => {
                 </div>
                 <div className="mt-auto">
                   <div className="pt-6">
-                    <a
+                    <Link
+                      to="/login"
                       className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                      href="#"
                     >
                       Sign in
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                      href="#"
+                      to="/signup"
                     >
                       Sign Up
-                    </a>
+                    </Link>
                   </div>
                   <p className="my-4 text-xs text-center text-gray-400">
                     <span>Copyright © 2021</span>

@@ -154,7 +154,7 @@ const Footer = () => {
             <ul className="col-span-2 flex justify-start gap-6 lg:col-span-5 lg:justify-end">
               <li>
                 <a
-                  href="/"
+                  href="https://www.facebook.com/FahimMuntashirBD/"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white-700 transition hover:opacity-75 dark:text-white-200"
@@ -178,7 +178,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="/"
+                  href="https://www.instagram.com/fahim.muntashir1/"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white-700 transition hover:opacity-75 dark:text-white-200"
@@ -202,7 +202,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="/"
+                  href="https://twitter.com/fahimasdf07"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white-700 transition hover:opacity-75 dark:text-white-200"
@@ -222,7 +222,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="/"
+                  href="https://github.com/FahimMuntashir1"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white-700 transition hover:opacity-75 dark:text-white-200"
@@ -246,7 +246,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="/"
+                  href="https://dribbble.com/fahimms1"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white-700 transition hover:opacity-75 dark:text-gray-200"

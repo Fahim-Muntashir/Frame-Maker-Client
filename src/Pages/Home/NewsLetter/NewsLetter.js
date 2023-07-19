@@ -1,7 +1,7 @@
 import React from "react";
 const NewsLetter = () => {
   return (
-    <div className="flex justify-center h-screen items-center py-3 px-2">
+    <div className="flex justify-center items-center py-3 my-10">
       <div className=" bg-white flex flex-col gap-4 sm:flex-row justify-around p-8 lg:p-16 drop-shadow-lg rounded-lg max-w-5xl w-full">
         <div className="text-xl md:text-2xl font-bold whitespace-nowrap">
           Do not miss any important news.<br></br>
