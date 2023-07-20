@@ -24,14 +24,31 @@ const SignUp = () => {
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmpassword.value;
 
-    // password validation
-    if (password.length < 6) {
+    // Form validation
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (password.length < 6 || !hasUpperCase || !hasSpecialChar) {
+      if (password.length < 6) {
+        toast.error("Password must be at least 6 characters long.");
+      }
+      if (!hasUpperCase) {
+        toast.error("Password must contain at least one uppercase letter.");
+      }
+      if (!hasSpecialChar) {
+        toast.error("Password must contain at least one special character.");
+      }
+      return;
     }
 
-    // and Its SIgn Up
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
+
     createUser(email, password)
       .then(() => {
-        toast.success("Signup done !! ");
+        toast.success("Signup done!!");
       })
       .catch((err) => {
         console.log(err.message);
