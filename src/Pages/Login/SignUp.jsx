@@ -1,9 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const SignUp = () => {
+  const [error, setError] = useState("");
+
+  const { loading, setLoading, createUser } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const photoUrl = event.target.photourl.value;
+    const password = event.target.password.value;
+    const confirmPassword = event.target.confirmpassword.value;
+
+    // password validation
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+    }
+
+    // and Its SIgn Up
+    createUser(email, password).then((result) => {
+      updateUserProfile(name, imageUrl)
+        .then(() => {
+          toast.success("Signup done !! ");
+          // save user to db
+          saveUSER(result.user);
+          navigate(from, { replace: true });
+        })
+        .catch((err) => {
+          console.log(err.message);
+          toast.error(err.message);
+          setLoading(false);
+        });
+    });
   };
 
   return (
@@ -37,7 +67,7 @@ const SignUp = () => {
                 <div className="relative">
                   <input
                     id="photo-url"
-                    name="photo-url"
+                    name="photourl"
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Photo Url"
@@ -66,14 +96,14 @@ const SignUp = () => {
                 </div>
                 <div className="relative">
                   <input
-                    id="password"
-                    name="confirm-password"
+                    id="confirmpassword"
+                    name="confirmpassword"
                     type="password"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Password"
                   />
                   <label
-                    htmlFor="password"
+                    htmlFor="confirmpassword"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                   >
                     Confirm Password
@@ -91,7 +121,7 @@ const SignUp = () => {
               <p>
                 Already Have an Account ?{" "}
                 <Link className="text-red-600" to="/login">
-                  Sign Up
+                  Sign In
                 </Link>
               </p>
             </form>
