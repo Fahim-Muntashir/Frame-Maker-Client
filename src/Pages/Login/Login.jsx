@@ -5,7 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { BounceLoader } from "react-spinners";
 
 const Login = () => {
-  const { createUser, signInWithGoogle, loading, setLoading } =
+  const { signIn, signInWithGoogle, loading, setLoading } =
     useContext(AuthContext);
 
   const location = useLocation();
@@ -34,7 +34,7 @@ const Login = () => {
       return;
     }
 
-    createUser(email, password)
+    signIn(email, password)
       .then(() => {
         toast.success("Successfully Login!!");
         navigate(from, { replace: true });

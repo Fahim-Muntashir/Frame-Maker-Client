@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   // onAuthStateChanged,
   // sendPasswordResetEmail,
-  // signInWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -37,6 +37,12 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Sign In User with email and pass
+  const signIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   // Update User Info
   const updateUserProfile = (name, photo) => {
     updateProfile(auth.currentUser, {
@@ -59,6 +65,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUser,
     setLoading,
+    signIn,
     signInWithGoogle,
     updateUserProfile,
     logOut,
