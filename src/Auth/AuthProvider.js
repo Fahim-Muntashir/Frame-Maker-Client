@@ -9,9 +9,9 @@ import {
   // signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  // updateProfile,
+  updateProfile,
 } from "firebase/auth";
-import { app } from "../firebase/firebase.config";
+import { app } from "../../src/firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const googleAuthProvider = new GoogleAuthProvider();
@@ -36,12 +36,21 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Update User Info
+  const updateUserProfile = (name, photo) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   const authInfo = {
     user,
     loading,
     createUser,
     setLoading,
     signInWithGoogle,
+    updateUserProfile,
     logOut,
   };
   return (
