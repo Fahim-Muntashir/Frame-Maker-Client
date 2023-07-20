@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import { BounceLoader } from "react-spinners";
 
 const SignUp = () => {
   const {
@@ -48,11 +49,14 @@ const SignUp = () => {
 
     createUser(email, password)
       .then(() => {
+        updateUserProfile(name, photoUrl);
         toast.success("Signup done!!");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
         toast.error(err.message);
+        setLoading(false);
       });
   };
 
@@ -163,7 +167,7 @@ const SignUp = () => {
                     type="submit"
                     className="bg-blue-500 btn w-full text-white rounded-md px-2 py-1"
                   >
-                    Submit
+                    {loading ? <BounceLoader color="#36d7b7" /> : "Submit"}
                   </button>
                 </div>
               </div>
