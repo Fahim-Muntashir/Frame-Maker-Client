@@ -1,10 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    signInWithGoogle,
+    loading,
+    setLoading,
+  } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -28,6 +39,19 @@ const SignUp = () => {
       });
   };
 
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error(err.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-black py-6 flex flex-col justify-center sm:py-12">
       <Toaster position="top-center" reverseOrder={false} />
@@ -41,7 +65,7 @@ const SignUp = () => {
               </h1>
             </div>
             <form onSubmit={handleSubmit} className="divide-y divide-gray-200">
-              <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <div className="py-3 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div className="relative">
                   <input
                     id="name"
@@ -120,19 +144,28 @@ const SignUp = () => {
                 <div className="relative">
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white rounded-md px-2 py-1"
+                    className="bg-blue-500 btn w-full text-white rounded-md px-2 py-1"
                   >
                     Submit
                   </button>
                 </div>
               </div>
-              <p>
-                Already Have an Account ?{" "}
-                <Link className="text-red-600" to="/login">
-                  Sign In
-                </Link>
-              </p>
             </form>
+            <div className="divider">OR</div>
+            <div>
+              <button
+                onClick={handleSignInWithGoogle}
+                className="btn btn-primary w-full font-bold text-white space-y-4"
+              >
+                Sign In With Google
+              </button>
+            </div>{" "}
+            <p className="mt-4">
+              Already Have an Account ?{" "}
+              <Link className="text-red-600" to="/login">
+                Sign In
+              </Link>
+            </p>
           </div>
         </div>
       </div>
