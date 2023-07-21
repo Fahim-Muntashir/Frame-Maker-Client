@@ -79,7 +79,8 @@ const Login = () => {
                     name="email"
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
-                    placeholder="Email address"
+                    placeholder="Email address "
+                    required
                   />
                   <label
                     htmlFor="email"
@@ -96,6 +97,7 @@ const Login = () => {
                     type="password"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Password"
+                    required
                   />
                   <label
                     htmlFor="password"

@@ -93,7 +93,8 @@ const SignUp = () => {
                     name="name"
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
-                    placeholder="Email address"
+                    placeholder="Your Name "
+                    required
                   />
                   <label
                     htmlFor="name"
@@ -109,6 +110,7 @@ const SignUp = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Email address"
+                    required
                   />
                   <label
                     htmlFor="email"
@@ -124,6 +126,7 @@ const SignUp = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Photo Url"
+                    required
                   />
                   <label
                     htmlFor="text"
@@ -139,6 +142,7 @@ const SignUp = () => {
                     type="password"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Password"
+                    required
                   />
                   <label
                     htmlFor="password"
@@ -154,6 +158,7 @@ const SignUp = () => {
                     type="password"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Password"
+                    required
                   />
                   <label
                     htmlFor="confirmpassword"

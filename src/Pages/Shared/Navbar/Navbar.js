@@ -54,7 +54,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="font-normal " to="#">
+              <Link className="font-normal" to="/instructor">
                 Instructors
               </Link>
             </li>
@@ -142,7 +142,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li className="my-4">
-                      <Link className="font-bold text-black" to="#">
+                      <Link className="font-bold text-black" to="/instructor">
                         Instructors
                       </Link>
                     </li>
