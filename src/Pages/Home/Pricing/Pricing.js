@@ -1,7 +1,7 @@
 import { useState } from "react";
 const pricingData = [
   {
-    mainTitle: "Freebie",
+    mainTitle: "Silver",
     infoNote: "Ideal for individuals who need quick access to basic features.",
     isSelected: false,
     monthlyPrice: 2,
@@ -26,7 +26,7 @@ const pricingData = [
     ],
   },
   {
-    mainTitle: "Professional",
+    mainTitle: "Gold",
     monthlyPrice: 5,
     yerlyPrice: 50,
     infoNote: "Ideal for individuals who need quick access to basic features.",
@@ -51,7 +51,7 @@ const pricingData = [
     ],
   },
   {
-    mainTitle: "Enterprise",
+    mainTitle: "Diamond",
     infoNote: "Ideal for individuals who need quick access to basic features.",
     isSelected: false,
     monthlyPrice: 10,
@@ -146,10 +146,9 @@ const Arrow = ({ strokColor }) => {
 const Pricing = () => {
   const [monthPrice, setMonthPrice] = useState(true);
   return (
-    <container className="flex flex-col justify-center items-center py-3 bg-gray-300 min-h-screen font-sans">
-      {/* heading section  */}
+    <container className="flex text-white flex-col justify-center items-center py-3 bg-black min-h-screen font-sans">
       <div className="flex flex-col w-auto px-6 text-center text-2xl sm:text-3xl md:text-4xl">
-        <span className="font-medium">Powerful features for</span>
+        <span className="font-medium text-white">Powerful features for</span>
         <span className="font-medium pt-4 text-transparent bg-clip-text bg-[#365CCE]">
           powerful creators.
         </span>

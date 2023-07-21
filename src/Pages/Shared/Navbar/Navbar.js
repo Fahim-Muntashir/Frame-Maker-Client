@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../logo.png";
 import Container from "../../../Components/Container";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Auth/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const handleMenuClose = () => {
     setIsMenuOpen(false);
   };
+  const handleLogOut = () => {
+    logOut();
+    console.log(user);
+  };
 
   return (
     <div className="shadow-sm">
       <Container>
-        <nav className=" relative flex justify-between items-center bg-black">
+        <nav className="relative text-white flex justify-between items-center bg-black">
           <img width="200px" src={logo} alt="" />
 
           {/* Burger menu */}
@@ -38,47 +45,66 @@ const Navbar = () => {
           {/* Main Navbar links */}
           <ul
             className={`${
-              isMenuOpen ? "block" : "hidden"
-            } lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}
+              isMenuOpen ? "hidden" : "hidden"
+            } lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-8`}
           >
             <li>
-              <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+              <Link className="font-normal" to="#">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-sm text-blue-600 font-bold" href="#">
-                About Us
-              </a>
+              <Link className="font-normal " to="#">
+                Instructors
+              </Link>
             </li>
             <li>
-              <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
-                Services
-              </a>
+              <Link className="font-normal" to="#">
+                Classes
+              </Link>
             </li>
-            <li>
-              <a className="text-sm text-blue-600 font-bold" href="#">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
-                Contact
-              </a>
-            </li>
+            {user ? (
+              <li>
+                <Link className="fomt-normal" to="#">
+                  Dashboard
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
-          <a
-            className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
-            href="#"
-          >
-            Sign In
-          </a>
-          <a
-            className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-            href="#"
-          >
-            Sign Up
-          </a>
+          {user ? (
+            <details className="dropdown hidden lg:block">
+              <summary className="avatar cursor-pointer w-12 online">
+                <img className="rounded-full" src={user.photoURL} alt="" />
+              </summary>
+              <ul className="pt-5 shadow menu dropdown-content z-[1] bg-white rounded-box w-32 me-auto">
+                <p className="text-black mb-4 font-bold">{user?.displayName}</p>
+                <button
+                  onClick={handleLogOut}
+                  className="text-center w-full rounded-lg mb-0 p-2 font-bold btn-primary"
+                >
+                  Log Out
+                </button>{" "}
+              </ul>
+            </details>
+          ) : (
+            <>
+              {" "}
+              <Link
+                className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
+                to="/login"
+              >
+                Sign In
+              </Link>
+              <Link
+                className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                to="/signup"
+              >
+                Sign Up
+              </Link>{" "}
+            </>
+          )}
           {/* Mobile menu */}
           {isMenuOpen && (
             <div className="navbar-menu relative z-50">
@@ -109,67 +135,60 @@ const Navbar = () => {
                   </button>
                 </div>
                 <div>
-                  <ul>
-                    <li className="mb-1">
-                      <a
-                        className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                        href="#"
-                      >
+                  <ul className="text-center ">
+                    <li className="my-4">
+                      <Link className="font-bold text-black" to="#">
                         Home
-                      </a>
+                      </Link>
                     </li>
-                    <li className="mb-1">
-                      <a
-                        className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                        href="#"
-                      >
-                        About Us
-                      </a>
+                    <li className="my-4">
+                      <Link className="font-bold text-black" to="#">
+                        Instructors
+                      </Link>
                     </li>
-                    <li className="mb-1">
-                      <a
-                        className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                        href="#"
-                      >
-                        Services
-                      </a>
+                    <li className="my-4">
+                      <Link className="font-bold text-black" to="#">
+                        Classes
+                      </Link>
                     </li>
-                    <li className="mb-1">
-                      <a
-                        className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                        href="#"
-                      >
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="mb-1">
-                      <a
-                        className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                        href="#"
-                      >
-                        Contact
-                      </a>
-                    </li>
+                    {user ? (
+                      <li className="my-4">
+                        <Link
+                          className="fomt-normal font-bold text-black"
+                          to="#"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    ) : (
+                      <></>
+                    )}
                   </ul>
                 </div>
                 <div className="mt-auto">
-                  <div className="pt-6">
-                    <Link
-                      to="/login"
-                      className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                  {user ? (
+                    <button
+                      onClick={handleLogOut}
+                      className="btn w-full font-bold btn-primary"
                     >
-                      Sign in
-                    </Link>
-                    <Link
-                      className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                      to="/signup"
-                    >
-                      Sign Up
-                    </Link>
-                  </div>
-                  <p className="my-4 text-xs text-center text-gray-400">
-                    <span>Copyright © 2021</span>
-                  </p>
+                      Log Out
+                    </button>
+                  ) : (
+                    <div className="pt-6">
+                      <Link
+                        to="/login"
+                        className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                      >
+                        Sign in
+                      </Link>
+                      <Link
+                        className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                        to="/signup"
+                      >
+                        Sign Up
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </nav>
             </div>

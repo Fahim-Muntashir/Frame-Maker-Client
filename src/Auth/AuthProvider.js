@@ -5,8 +5,6 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
-  // onAuthStateChanged,
-  // sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
