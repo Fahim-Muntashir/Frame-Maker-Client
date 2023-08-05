@@ -13,15 +13,15 @@ const pricingData = [
       },
       {
         rightIcon: true,
-        description: "Access to 100 million stock images",
+        description: "Access All Paid Class",
       },
       {
         rightIcon: false,
-        description: "Instant Access to our design system",
+        description: "Debate With Student and Win award",
       },
       {
         rightIcon: false,
-        description: "Create teams to collaborate on designs",
+        description: "All Time support",
       },
     ],
   },
@@ -38,15 +38,15 @@ const pricingData = [
       },
       {
         rightIcon: true,
-        description: "Access to 100 million stock images",
+        description: "Access All Paid Class",
+      },
+      {
+        rightIcon: true,
+        description: "Debate With Student and Win award",
       },
       {
         rightIcon: false,
-        description: "Instant Access to our design system",
-      },
-      {
-        rightIcon: false,
-        description: "Create teams to collaborate on designs",
+        description: "All Time support",
       },
     ],
   },
@@ -63,15 +63,15 @@ const pricingData = [
       },
       {
         rightIcon: true,
-        description: "Access to 100 million stock images",
+        description: "Access All Paid Class",
       },
       {
-        rightIcon: false,
-        description: "Instant Access to our design system",
+        rightIcon: true,
+        description: "Debate With Student and Win award",
       },
       {
-        rightIcon: false,
-        description: "Create teams to collaborate on designs",
+        rightIcon: true,
+        description: "All Time support",
       },
     ],
   },
@@ -146,11 +146,11 @@ const Arrow = ({ strokColor }) => {
 const Pricing = () => {
   const [monthPrice, setMonthPrice] = useState(true);
   return (
-    <container className="flex text-white flex-col justify-center items-center py-3 bg-black min-h-screen font-sans">
+    <container className="flex text-white flex-col justify-center items-center py-3 bg-gray-900 min-h-screen font-sans">
       <div className="flex flex-col w-auto px-6 text-center text-2xl sm:text-3xl md:text-4xl">
         <span className="font-medium text-white">Powerful features for</span>
         <span className="font-medium pt-4 text-transparent bg-clip-text bg-[#365CCE]">
-          powerful creators.
+          powerful students.
         </span>
         <span className="text-xl mt-4">
           Chose a plan that&apos;s right for you

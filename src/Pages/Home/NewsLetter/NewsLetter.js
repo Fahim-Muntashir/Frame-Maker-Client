@@ -3,11 +3,11 @@ import Container from "../../../Components/Container";
 const NewsLetter = () => {
   return (
     <Container>
-      <div className="flex bg-black justify-center items-center py-32">
+      <div className="flex justify-center items-center py-32">
         <div className=" bg-white flex flex-col gap-4 sm:flex-row justify-around p-8 lg:p-16 drop-shadow-lg rounded-lg w-full">
           <div className="text-xl md:text-2xl font-bold whitespace-nowrap">
             Do not miss any important news.<br></br>
-            <span className="text-[#365CCE] ">Subscribe to the Newsroom</span>
+            <span className="text-[#365CCE] ">Subscribe Now Frame Maker</span>
           </div>
           <div className="flex gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
             <input

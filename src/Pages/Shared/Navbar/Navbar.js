@@ -3,6 +3,7 @@ import logo from "../../../logo.png";
 import Container from "../../../Components/Container";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
+import CartButton from "../../../Components/CartButton";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-sm">
+    <div className="shadow-lg shadow-cyan-500/50">
       <Container>
-        <nav className="relative text-white flex justify-between items-center bg-black">
+        <nav className="relative text-white flex justify-between items-center ">
           <img width="200px" src={logo} alt="" />
 
           {/* Burger menu */}
@@ -49,7 +50,7 @@ const Navbar = () => {
             } lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-8`}
           >
             <li>
-              <Link className="font-normal" to="#">
+              <Link className="font-normal" to="/">
                 Home
               </Link>
             </li>
@@ -59,16 +60,23 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="font-normal" to="#">
+              <Link className="font-normal" to="/classes">
                 Classes
               </Link>
             </li>
             {user ? (
-              <li>
-                <Link className="fomt-normal" to="#">
-                  Dashboard
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link className="fomt-normal" to="dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link className="fomt-normal" to="/dashboard/mycart">
+                    <CartButton></CartButton>
+                  </Link>
+                </li>
+              </>
             ) : (
               <></>
             )}

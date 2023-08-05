@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { BounceLoader } from "react-spinners";
+import GoogleSignIn from "../../Components/GoogleSignIn";
 
 const SignUp = () => {
   const {
@@ -50,20 +51,21 @@ const SignUp = () => {
     createUser(email, password)
       .then(() => {
         updateUserProfile(name, photoUrl);
-        toast.success("Signup done!!");
-        navigate(from, { replace: true });
-      })
-      .catch((err) => {
-        console.log(err.message);
-        toast.error(err.message);
-        setLoading(false);
-      });
-  };
+        const userInDb = { name: name, email: email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInDb),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              toast.success("Signup done!!");
+            }
+          });
 
-  const handleSignInWithGoogle = () => {
-    signInWithGoogle()
-      .then((result) => {
-        console.log(result.user);
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -178,14 +180,8 @@ const SignUp = () => {
               </div>
             </form>
             <div className="divider">OR</div>
-            <div>
-              <button
-                onClick={handleSignInWithGoogle}
-                className="btn btn-primary w-full font-bold text-white space-y-4"
-              >
-                Sign In With Google
-              </button>
-            </div>{" "}
+            {/* Google Sign In  */}
+            <GoogleSignIn></GoogleSignIn>
             <p className="mt-4">
               Already Have an Account ?{" "}
               <Link className="text-red-600" to="/login">

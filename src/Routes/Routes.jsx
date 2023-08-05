@@ -5,6 +5,11 @@ import Home from "../Pages/Home/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
 import SignUp from "../Pages/Login/SignUp";
 import Instructor from "../Pages/Instructor/Instructor";
+import Classes from "../Pages/Classes/Classes";
+import DashBoard from "../Pages/Layout/DashBoard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +31,28 @@ const router = createBrowserRouter([
       {
         path: "instructor",
         element: <Instructor></Instructor>,
+      },
+      {
+        path: "classes",
+        element: <Classes></Classes>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "mycart",
+        element: <MyCart></MyCart>,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers></AllUsers>,
       },
     ],
   },
