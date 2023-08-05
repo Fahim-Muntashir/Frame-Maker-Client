@@ -55,7 +55,7 @@ const DashBoard = () => {
             />
             <div>
               <h2 class="font-medium text-xs md:text-sm text-center text-gray-900">
-                Eduard Pantazi
+                {user.displayName}
               </h2>
               <p class="text-xs text-gray-500 text-center">Administrator</p>
             </div>
