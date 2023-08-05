@@ -4,16 +4,21 @@ import { Toaster, toast } from "react-hot-toast";
 
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5000/users");
+    const res = await fetch(
+      "https://frame-maker-server-fahimmuntashir1.vercel.app/users"
+    );
     const data = await res.json();
     return data;
   });
 
   const { mutate: makeUserTeacher } = useMutation(
     (userId) =>
-      fetch(`http://localhost:5000/users/admin/${userId}`, {
-        method: "PATCH",
-      }).then((res) => res.json()),
+      fetch(
+        `https://frame-maker-server-fahimmuntashir1.vercel.app/users/admin/${userId}`,
+        {
+          method: "PATCH",
+        }
+      ).then((res) => res.json()),
     {
       onSuccess: (data, userId) => {
         if (data.modifiedCount) {

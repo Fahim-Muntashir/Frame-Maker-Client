@@ -7,7 +7,7 @@ const useCart = (email) => {
     queryKey: ["carts", user?.email],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:5000/carts?email=${user?.email}`
+        `https://frame-maker-server-fahimmuntashir1.vercel.app/carts?email=${user?.email}`
       );
       return response.json();
     },

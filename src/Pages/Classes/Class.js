@@ -30,7 +30,7 @@ const Class = ({ courses }) => {
         email: user.email,
       };
       console.log(course);
-      fetch("http://localhost:5000/carts", {
+      fetch("https://frame-maker-server-fahimmuntashir1.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

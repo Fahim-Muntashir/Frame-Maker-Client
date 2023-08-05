@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 const useCourse = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://frame-maker-server-fahimmuntashir1.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);

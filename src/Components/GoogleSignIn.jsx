@@ -16,7 +16,7 @@ const GoogleSignIn = () => {
         const userInDb = { name: user.displayName, email: user.email };
 
         // USer save in db
-        fetch("http://localhost:5000/users", {
+        fetch("https://frame-maker-server-fahimmuntashir1.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

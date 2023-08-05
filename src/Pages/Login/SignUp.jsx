@@ -52,7 +52,7 @@ const SignUp = () => {
       .then(() => {
         updateUserProfile(name, photoUrl);
         const userInDb = { name: name, email: email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://frame-maker-server-fahimmuntashir1.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
