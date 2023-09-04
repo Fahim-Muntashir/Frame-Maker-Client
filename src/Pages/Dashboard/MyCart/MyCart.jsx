@@ -2,6 +2,7 @@ import React from "react";
 import useCart from "../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 const MyCart = () => {
   const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((sum, item) => item.price + sum, 0);
@@ -43,7 +44,10 @@ const MyCart = () => {
         <h2 className="text-3xl text-bold text-center">
           Total Price:${totalPrice}
         </h2>
-        <button className="btn btn-secondary">Pay</button>
+
+        <Link to="/dashboard/payment">    <button className="btn btn-secondary">Pay</button>
+        </Link>
+    
       </div>
       <div className="overflow-x-auto">
         <table className="table">

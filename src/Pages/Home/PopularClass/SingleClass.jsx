@@ -1,6 +1,7 @@
 import React from "react";
 
 const SingleClass = ({ data }) => {
+  console.log(data)
   return (
     <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
       <div className="relative">

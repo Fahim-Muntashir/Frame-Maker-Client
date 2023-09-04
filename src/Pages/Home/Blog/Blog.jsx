@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <section className="m-4 md:m-8 dark:bg-gray-800 dark:text-gray-100">
+            <section className="my-12 py-12 bg-gray-900 text-gray-100">
 	<div className="container p-4 mx-auto my-6 space-y-1 text-center">
 		<span className="text-xs font-semibold tracki uppercase dark:text-violet-400">shortcut to your dream ui</span>
 		<h2 className="pb-3 text-3xl font-bold md:text-4xl">Create a stylish website in minutes</h2>

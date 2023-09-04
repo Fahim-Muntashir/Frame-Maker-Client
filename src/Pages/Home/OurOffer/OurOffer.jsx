@@ -2,7 +2,7 @@ import React from 'react';
 
 const OurOffer = () => {
     return (
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:py-20 bg-gray-800 text-gray-100">
+            <div className="lg:px-64 px-20 py-16 mx-auto sm:max-w-xl text-center md:max-w-full lg:py-20 bg-gray-800 text-gray-100">
 	<h2 className="mb-8 text-4xl font-bold leadi text-center">What do we have to offer?</h2>
 	<ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
 		<li className="flex items-center space-x-2">
